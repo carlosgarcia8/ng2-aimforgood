@@ -1,0 +1,25 @@
+.intro {
+  background-color: #FFF;
+  text-align: center;
+  margin-top: 4%;
+  min-height: 500px;
+  padding: 15px;
+}
+
+.intro h3 {
+  padding: 8px;
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #999;
+}
+
+.start {
+  margin-top: 25px;
+  font-size: 26px;
+}

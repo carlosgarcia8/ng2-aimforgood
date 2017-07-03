@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="intro" *ngIf="!_gs.started">
+    <div class="">
+      <h3>Target Spawn Speed</h3>
+      <div class="options">
+        <div class="option-item" *ngFor="let speed of speed_modes">
+          <button type="button"
+                  class="btn btn-outline-primary"
+                  *ngIf="speed !== speed_default"
+                  (click)="cambiarSpeed(speed)">{{ speed }}</button>
+          <button type="button"
+                  class="btn btn-primary"
+                  *ngIf="speed == speed_default">{{ speed }}</button>
+        </div>
+      </div>
+    </div>
+    <div class="">
+      <h3>Target Size</h3>
+      <div class="options">
+        <div class="option-item" *ngFor="let size of size_options">
+          <button type="button"
+                  class="btn btn-outline-primary"
+                  *ngIf="size !== size_default"
+                  (click)="cambiarSize(size)">{{ size }}</button>
+          <button type="button"
+                  class="btn btn-primary"
+                  *ngIf="size == size_default">{{ size }}</button>
+        </div>
+      </div>
+    </div>
+    <button type="button" (click)="newGame()" class="btn btn-success start">Start</button>
+  </div>
+</div>

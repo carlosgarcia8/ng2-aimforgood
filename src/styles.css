@@ -3,3 +3,8 @@
 body {
   background-color: #C6C6C6;
 }
+
+html, body {
+  height: 100%;
+  width: 100%;
+}

@@ -11,3 +11,5 @@ export const SIZE_OPTIONS = [
 	'Medium',
 	'Large'
 ];
+
+export const INITIAL_TIME = 30;

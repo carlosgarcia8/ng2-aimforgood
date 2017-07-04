@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from '../../services/game.service';
+import { INITIAL_TIME } from '../../app.constants';
 
 @Component({
   selector: 'app-game',
@@ -12,5 +13,4 @@ export class GameComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

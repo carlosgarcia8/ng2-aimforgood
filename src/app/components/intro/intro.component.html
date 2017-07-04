@@ -1,5 +1,10 @@
 <div class="container">
   <div class="intro" *ngIf="!_gs.started">
+    <div class=""*ngIf="_gs.hasPlayed">
+      Has acertado {{ _gs.aciertos }} veces.
+      Has fallado en {{ _gs.fallos }} ocasiones.
+      Porcentaje de acierto: {{ _gs.porcentaje | number : '1.2-2'}}%
+    </div>
     <div class="">
       <h3>Target Spawn Speed</h3>
       <div class="options">

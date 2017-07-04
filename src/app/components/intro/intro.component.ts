@@ -30,6 +30,7 @@ export class IntroComponent implements OnInit {
   newGame() {
     this._gs.actualizarConfig(this.speed_default, this.size_default);
     this._gs.started = true;
+    this._gs.start();
   }
 
 }

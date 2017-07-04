@@ -1,7 +1,10 @@
 <div class="game-container">
-  <div class="" *ngIf="_gs.started">
-    {{ _gs.speed_selec }}
-    {{ _gs.size_selec }}
+  <div class="game-area" *ngIf="_gs.started" (click)="_gs.fallo()">
+    <div class="target"
+        *ngFor="let circle of _gs.circles; let i = index"
+        [ngStyle]="{'left': circle.left + '%', 'top': circle.top + '%'}"
+        (click)="_gs.eliminarCircle(i, $event)">
+    </div>
   </div>
 
 </div>

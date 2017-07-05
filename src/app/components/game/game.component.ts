@@ -36,8 +36,9 @@ export class GameComponent implements OnInit {
   ngOnInit() {
   }
 
-  animationDone(idx:number, event: AnimationEvent) {
-    console.log(idx);
-    // this._gs.circles[idx].done = true;
+  animationDone(idx:number, event) {
+    if (this._gs.started) {
+      this._gs.circles[idx].done = true;
+    }
   }
 }

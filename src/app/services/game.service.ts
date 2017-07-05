@@ -94,10 +94,9 @@ export class GameService {
       this.porcentaje = (this.aciertos / (total)) * 100;
     }
 
-    // this.total_posibles = this.circles.filter(circle => circle.done === true).length;
-    this.total_posibles = this.circles.length;
+    this.total_posibles = this.circles.filter(circle => circle.done === true).length;
 
-    // this.circles = [];
+    this.circles = [];
   }
 
   crono(t:number) {
@@ -120,10 +119,16 @@ export class GameService {
   eliminarCircle(idx:number, event) {
     event.stopPropagation();
     this.aciertos++;
+    this.time++;
     this.circles[idx].clicked = true;
   }
 
   fallo() {
     this.fallos++;
+    if (this.time - 2 < 0) {
+      this.time = 0;
+    } else {
+      this.time -= 2;
+    }
   }
 }

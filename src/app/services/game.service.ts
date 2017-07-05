@@ -31,7 +31,22 @@ export class GameService {
 
   private total_posibles:number = 0;
 
-  constructor() { }
+  public datos:any[] = [];
+
+  public barChartLabels:string[] = [];
+
+  public barChartData:any[];
+
+  private _dataAciertos:any[] = [];
+  private _dataFallos:any[] = [];
+
+  constructor() {
+    this.datos = this.getData();
+
+    if (this.datos !== null) {
+      this.rellenarData();
+    }
+  }
 
   actualizarConfig(speed:string, size:string) {
     this.speed_selec = speed;
@@ -88,6 +103,10 @@ export class GameService {
   }
 
   stop() {
+    if (this.datos === null) {
+      this.datos = [];
+    }
+
     clearInterval(this.intervalo);
     let total = this.aciertos + this.fallos;
     if (total !== 0) {
@@ -95,6 +114,16 @@ export class GameService {
     }
 
     this.total_posibles = this.circles.filter(circle => circle.done === true).length;
+
+    this.datos.push({"aciertos": this.aciertos, "fallos": this.fallos, "prj": this.porcentaje.toFixed(2)});
+
+    if (this.datos.length > 10) {
+      this.datos.splice(0, 1);
+    }
+
+    localStorage.setItem('aim', JSON.stringify(this.datos));
+
+    this.rellenarData();
 
     this.circles = [];
   }
@@ -130,5 +159,22 @@ export class GameService {
     } else {
       this.time -= 2;
     }
+  }
+
+  rellenarData() {
+    for (let dato of this.datos) {
+      this.barChartLabels.push(dato.prj + '%');
+      this._dataAciertos.push(dato.aciertos);
+      this._dataFallos.push(dato.fallos);
+    }
+
+    this.barChartData = [
+      {data: this._dataAciertos, label: 'Aciertos'},
+      {data: this._dataFallos, label: 'Fallos'}
+    ]
+  }
+
+  getData() {
+    return JSON.parse(localStorage.getItem('aim'));
   }
 }

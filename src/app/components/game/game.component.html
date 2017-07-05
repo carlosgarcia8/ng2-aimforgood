@@ -1,6 +1,6 @@
 <div class="game-container">
   <div class="game-timer" *ngIf="_gs.started">
-    <h2>{{ _gs.time - _gs.ticks }}</h2>
+    <h2>{{ _gs.time - _gs.ticks | zero }}</h2>
   </div>
   <div class="game-area" *ngIf="_gs.started" (click)="_gs.fallo()">
     <div

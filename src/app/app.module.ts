@@ -10,12 +10,14 @@ import { GameService } from './services/game.service';
 import { AppComponent } from './app.component';
 import { IntroComponent } from './components/intro/intro.component';
 import { GameComponent } from './components/game/game.component';
+import { ZeroPipe } from './pipes/zero.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     IntroComponent,
-    GameComponent
+    GameComponent,
+    ZeroPipe
   ],
   imports: [
     BrowserModule,

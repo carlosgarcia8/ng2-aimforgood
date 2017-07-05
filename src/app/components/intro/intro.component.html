@@ -34,28 +34,6 @@
       </div>
     </div>
     <button type="button" (click)="newGame()" class="btn btn-success start">Start</button>
-    <button type="button" class="btn btn-info start" (click)="modal.open()">Estadisticas</button>
+    <a class="btn btn-info start" routerLink="/stats">Estadisticas</a>
   </div>
-
-  <modal #modal>
-      <modal-header>
-        <h4 class="modal-title">Estadisticas de tus últimas 10 partidas</h4>
-      </modal-header>
-      <modal-body>
-        <div style="display: block; max-height: 300px;" *ngIf="_hayStats">
-          <canvas baseChart
-                  [datasets]="barChartData"
-                  [labels]="barChartLabels"
-                  [options]="barChartOptions"
-                  [legend]="barChartLegend"
-                  [chartType]="barChartType"
-                  (chartHover)="chartHovered($event)"
-                  (chartClick)="chartClicked($event)"></canvas>
-        </div>
-        <div style="display: block; min-height:300px; max-height: 300px;" *ngIf="!_hayStats">
-          <span>No hay estadisticas de partidas anteriores.</span>
-        </div>
-      </modal-body>
-      <modal-footer [show-default-buttons]="true" [dismiss-button-label]="'Cerrar'"></modal-footer>
-  </modal>
 </div>

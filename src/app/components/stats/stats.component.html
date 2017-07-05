@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="stats">
+    <div>
+      <h4 class="title">Estadisticas de tus últimas 10 partidas</h4>
+    </div>
+    <div style="display: block; max-height: 600px;" *ngIf="_hayStats">
+      <canvas baseChart
+              [datasets]="_gs.barChartData"
+              [labels]="_gs.barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"></canvas>
+    </div>
+    <div style="display: block; min-height:300px; max-height: 600px;" *ngIf="!_hayStats">
+      <span>No hay estadisticas de partidas anteriores.</span>
+    </div>
+    <div><a class="btn btn-info start" routerLink="/">Volver</a></div>
+  </div>
+</div>

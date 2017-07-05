@@ -2,8 +2,6 @@
   border-radius: 50%;
   background: red;
   position: absolute;
-  /*animation: targets 3s linear;*/
-  /*transition: opacity 3s ease-in-out;*/
 }
 
 .tiny {
@@ -44,20 +42,4 @@
   height: 100%;
   top: 0;
   left: 0;
-}
-
-@keyframes targets {
-  0% {
-    -webkit-transform: scale(0.2, 0.2);
-  }
-  40% {
-    -webkit-transform: scale(1, 1);
-  }
-  80% {
-    -webkit-transform: scale(0.3, 0.3);
-  }
-  100% {
-    display: none;
-    -webkit-transform: scale(0, 0);
-  }
 }

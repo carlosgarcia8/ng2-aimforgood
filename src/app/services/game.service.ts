@@ -126,6 +126,7 @@ export class GameService {
     this.rellenarData();
 
     this.circles = [];
+    console.log(this.barChartData);
   }
 
   crono(t:number) {
@@ -162,6 +163,10 @@ export class GameService {
   }
 
   rellenarData() {
+    this._dataAciertos = [];
+    this._dataFallos = [];
+    this.barChartLabels = [];
+
     for (let dato of this.datos) {
       this.barChartLabels.push(dato.prj + '%');
       this._dataAciertos.push(dato.aciertos);

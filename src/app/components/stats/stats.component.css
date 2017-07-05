@@ -1,0 +1,24 @@
+.stats {
+  background-color: #FFF;
+  text-align: center;
+  margin-top: 4%;
+  min-height: 800px;
+  padding: 15px;
+}
+
+.stats > div {
+  margin-bottom: 30px;
+}
+
+.stats h4 {
+  padding: 8px;
+}
+
+.start {
+  margin-top: 25px;
+  font-size: 26px;
+}
+
+canvas {
+  max-height: inherit;
+}

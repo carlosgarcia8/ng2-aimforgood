@@ -14,36 +14,9 @@ export class IntroComponent implements OnInit {
   public speed_default = "Normal";
   public size_default = "Medium";
 
-  public barChartOptions:any = {
-    scaleShowVerticalLines: false,
-    responsive: true
-  };
-  public barChartLabels:string[] = [];
-  public barChartType:string = 'bar';
-  public barChartLegend:boolean = true;
-
-  public barChartData:any[];
-
-  private _hayStats:boolean = false;
-
   constructor(private _gs:GameService) { }
 
   ngOnInit() {
-    this.barChartLabels = this._gs.barChartLabels;
-    this.barChartData = this._gs.barChartData;
-
-    if (this.barChartData) {
-      this._hayStats = true;
-    }
-  }
-
-  ngOnChanges() {
-    this.barChartLabels = this._gs.barChartLabels;
-    this.barChartData = this._gs.barChartData;
-
-    if (this.barChartData) {
-      this._hayStats = true;
-    }
   }
 
   cambiarSpeed(speed:string) {

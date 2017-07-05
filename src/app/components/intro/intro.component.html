@@ -1,12 +1,19 @@
 <div class="container">
   <div class="intro" *ngIf="!_gs.started">
-    <div class=""*ngIf="_gs.hasPlayed">
-      Has acertado {{ _gs.aciertos }} veces de un total de {{ _gs.total_posibles }} posibles.
-      Has fallado en {{ _gs.fallos }} ocasiones.
-      Porcentaje de acierto: {{ _gs.porcentaje | number : '1.2-2'}}%
-    </div>
+    <h2>Aim for Good</h2>
     <div class="">
+      <h3>How to play:</h3>
+      <div class="how-span">
+        <span>
+          Choose your play options, press start and click the targets as fast
+          as you can! But beware, every fail click substract 2 seconds and one good click
+          adds 1 seconds. So don't rush my friend, you only start with 30 seconds!
+        </span>
+      </div>
+    </div>
+    <div class="targets">
       <h3>Target Spawn Speed</h3>
+      <span class="target-span">Change the speed that each target appears.</span>
       <div class="options">
         <div class="option-item" *ngFor="let speed of speed_modes">
           <button type="button"
@@ -19,8 +26,9 @@
         </div>
       </div>
     </div>
-    <div class="">
+    <div class="targets">
       <h3>Target Size</h3>
+      <span class="target-span">Change the maximum size that each target will reach.</span>
       <div class="options">
         <div class="option-item" *ngFor="let size of size_options">
           <button type="button"
@@ -33,7 +41,14 @@
         </div>
       </div>
     </div>
-    <button type="button" (click)="newGame()" class="btn btn-success start">Start</button>
-    <a class="btn btn-info start" routerLink="/stats">Estadisticas</a>
+    <div class="game-done"*ngIf="_gs.hasPlayed">
+      <p>You clicked {{ _gs.aciertos }} of {{ _gs.total_posibles }} possible targets.</p>
+      <p>You misclicked {{ _gs.fallos }} times.</p>
+      <p>Percentage of success: {{ _gs.porcentaje | number : '1.2-2'}}%</p>
+    </div>
+    <div class="botones">
+      <button type="button" (click)="newGame()" class="btn btn-success start">Start!</button>
+    </div>
+    <a class="" routerLink="/stats">See 10 last games stats</a>
   </div>
 </div>

@@ -6,6 +6,10 @@
   padding: 15px;
 }
 
+.intro > div {
+  margin-bottom: 30px;
+}
+
 .intro h3 {
   padding: 8px;
 }

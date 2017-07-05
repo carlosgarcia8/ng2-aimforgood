@@ -1,9 +1,25 @@
 <div class="game-container">
+  <div class="game-timer" *ngIf="_gs.started">
+    <h2>{{ _gs.time - _gs.ticks }}</h2>
+  </div>
   <div class="game-area" *ngIf="_gs.started" (click)="_gs.fallo()">
-    <div class="target"
-        *ngFor="let circle of _gs.circles; let i = index"
-        [ngStyle]="{'left': circle.left + '%', 'top': circle.top + '%'}"
-        (click)="_gs.eliminarCircle(i, $event)">
+    <div
+        *ngFor="let circle of _gs.circles; let i = index">
+        <div
+          [ngStyle]="{'left': circle.left + '%', 'top': circle.top + '%'}"
+          [ngClass]="{
+            'target': true,
+            'tiny': _gs.size_selec == size_options[0],
+            'small': _gs.size_selec == size_options[1],
+            'normal': _gs.size_selec == size_options[2],
+            'large': _gs.size_selec == size_options[3]
+          }"
+          [@flyInOut]="'in'"
+          (@flyInOut.done)="animationDone(i, $event)"
+          (click)="_gs.eliminarCircle(i, $event)"
+          *ngIf="!circle.clicked">
+
+        </div>
     </div>
   </div>
 

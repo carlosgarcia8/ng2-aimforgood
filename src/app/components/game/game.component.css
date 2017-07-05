@@ -1,10 +1,40 @@
 .target {
-  width: 3em;
-  height: 3em;
   border-radius: 50%;
   background: red;
   position: absolute;
   /*animation: targets 3s linear;*/
+  /*transition: opacity 3s ease-in-out;*/
+}
+
+.tiny {
+  width: 1em;
+  height: 1em;
+}
+
+.small {
+  width: 2em;
+  height: 2em;
+}
+
+.normal {
+  width: 3em;
+  height: 3em;
+}
+
+.large {
+  width: 4em;
+  height: 4em;
+}
+
+.game-timer {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 50%;
+}
+
+.game-timer h2 {
+  font-size: 50px;
 }
 
 .game-area {
@@ -27,6 +57,7 @@
     -webkit-transform: scale(0.3, 0.3);
   }
   100% {
+    display: none;
     -webkit-transform: scale(0, 0);
   }
 }

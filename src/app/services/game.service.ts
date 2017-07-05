@@ -29,6 +29,8 @@ export class GameService {
 
   private porcentaje:number = 0;
 
+  private total_posibles:number = 0;
+
   constructor() { }
 
   actualizarConfig(speed:string, size:string) {
@@ -66,7 +68,9 @@ export class GameService {
 
     let circle:Circle = {
       left: Math.round(Math.random() * 95) + 1,
-      top: Math.round(Math.random() * 79) + 2
+      top: Math.round(Math.random() * 79) + 2,
+      clicked: false,
+      done: false
     }
 
     this.circles.push(circle);
@@ -74,7 +78,9 @@ export class GameService {
     this.intervalo = setInterval (() => {
       let circle:Circle = {
         left: Math.round(Math.random() * 95) + 1,
-        top: Math.round(Math.random() * 79) + 2
+        top: Math.round(Math.random() * 79) + 2,
+        clicked: false,
+        done: false
       }
 
       this.circles.push(circle);
@@ -88,7 +94,10 @@ export class GameService {
       this.porcentaje = (this.aciertos / (total)) * 100;
     }
 
-    this.circles = [];
+    // this.total_posibles = this.circles.filter(circle => circle.done === true).length;
+    this.total_posibles = this.circles.length;
+
+    // this.circles = [];
   }
 
   crono(t:number) {
@@ -111,7 +120,7 @@ export class GameService {
   eliminarCircle(idx:number, event) {
     event.stopPropagation();
     this.aciertos++;
-    this.circles.splice(idx,1);
+    this.circles[idx].clicked = true;
   }
 
   fallo() {

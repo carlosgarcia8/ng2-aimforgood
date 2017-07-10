@@ -10,7 +10,16 @@ export class StatsComponent implements OnInit {
 
   public barChartOptions:any = {
     scaleShowVerticalLines: false,
-    responsive: true
+    responsive: true,
+    options: {
+      scales: {
+          yAxes: [{
+              ticks: {
+                  beginAtZero: true
+              }
+          }]
+      }
+  }
   };
   public barChartType:string = 'bar';
   public barChartLegend:boolean = true;

@@ -14,7 +14,7 @@ export class IntroComponent implements OnInit {
   public speed_default = "Normal";
   public size_default = "Medium";
 
-  constructor(private _gs:GameService) { }
+  constructor(public _gs:GameService) { }
 
   ngOnInit() {
   }

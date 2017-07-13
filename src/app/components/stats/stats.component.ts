@@ -24,7 +24,7 @@ export class StatsComponent implements OnInit {
   public barChartType:string = 'bar';
   public barChartLegend:boolean = true;
 
-  private _hayStats:boolean = false;
+  public _hayStats:boolean = false;
 
   constructor(private _gs:GameService) { }
 

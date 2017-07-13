@@ -31,7 +31,7 @@ export class GameComponent implements OnInit {
 
   size_options = SIZE_OPTIONS;
 
-  constructor(private _gs:GameService) { }
+  constructor(public _gs:GameService) { }
 
   ngOnInit() {
   }
